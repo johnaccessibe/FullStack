@@ -1,4 +1,5 @@
 const fs = require("fs");
+
 function write(fileName, text) {
     return new Promise((resolve, reject) => {
         fs.writeFile(fileName, text, err => {
@@ -32,6 +33,17 @@ function append(fileName, text) {
             resolve(content);
         });
     });
+}
+
+function mkdirs(data) {
+    if (fs.existsSync(data)) {
+        return true;
+    } else {
+        if (mkdirs(path.dirname(data))) {
+            fs.mkdirSync(data);
+            return true;
+        }
+    }
 }
 
 module.exports = {

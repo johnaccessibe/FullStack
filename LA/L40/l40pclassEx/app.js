@@ -1,7 +1,17 @@
 const fileHandler = require("./file-handler");
 
+
+// var shell = require('./shelljs');
+// shell.mkdir('data', fullPath);
+
+// fileHandler.mkdirSync(data, { recursive: true });
+
 const arr = [];
 let secondArr = [];
+
+
+
+
 
 for (let i = 0; i < 100; i++) {
     let randomNum = ""
@@ -11,8 +21,9 @@ for (let i = 0; i < 100; i++) {
 
 async function main() {
     try {
-        await fileHandler.write("my-file.txt", arr);
-        const content = await fileHandler.read("my-file.txt")
+
+        await fileHandler.write("./data/numbers.txt", arr);
+        const content = await fileHandler.read("./data/numbers.txt")
         // console.log(content)
         newArr = content.split(',');
 
