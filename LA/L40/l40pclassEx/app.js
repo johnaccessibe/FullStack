@@ -1,6 +1,5 @@
 const fileHandler = require("./file-handler");
 
-
 // var shell = require('./shelljs');
 // shell.mkdir('data', fullPath);
 
@@ -17,6 +16,7 @@ for (let i = 0; i < 100; i++) {
     let randomNum = ""
     randomNum = Math.floor((Math.random() * 100) + 1);
     arr.push(randomNum)
+
 }
 
 async function main() {
@@ -24,7 +24,7 @@ async function main() {
 
         await fileHandler.write("./data/numbers.txt", arr);
         const content = await fileHandler.read("./data/numbers.txt")
-        // console.log(content)
+        console.log(content)
         newArr = content.split(',');
 
         for (const i of newArr) {
